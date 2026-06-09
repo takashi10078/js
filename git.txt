@@ -1,0 +1,5 @@
+git add .
+git commit -m "修正内容"
+git push
+
+この3行を繰り返す
