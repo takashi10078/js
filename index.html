@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恋愛診断</title>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="index-body"> 
+
+<div id="splash">
+    <h1>♡ 恋愛タイプ診断 ♡</h1>
+</div>
+
+<a href="./index.html" class="home-btn">
+  home
+</a>
+    
+<div id="wrapper">
+
+        <div class="flex-container">
+            <div class="sindan_block">            
+                <div class="text-box">
+                    <h1>あなたの恋愛タイプを診断します♡</h1><br>
+                    <h2>全20問の質問に答えると<br>恋愛タイプが分かります！</h2>
+                    <button id="startBtn" class="styled">診断スタート</button><br>
+                    <a href="./result.html" class="styled">結果を見る❤</a>
+                </div>
+                <form id="sindanForm" style="display: none;">
+                    <div id="questions"></div>
+
+                    <div class="block" id="submitBlock" style="display: none;">
+                        <input class="styled" type="submit" value="診断">
+                    </div>
+                </form>
+            </div>
+
+
+
+            <div id="canvas-container">
+                <canvas id="avatarCanvas"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+    
+    <!-- three.jsの読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/fflate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FBXLoader.js"></script>
+
+    <script src="./character.js"></script>
+    
+    <script src="./main.js"></script>
+</body>
+</html>

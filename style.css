@@ -1,0 +1,239 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.index-body {
+      overflow: hidden;
+}
+
+body {
+    text-align: center;
+    background-image: url(./img/sakura.png);
+    background-attachment: fixed;
+    font-family: "Yomogi", cursive;
+    margin: 0;                     /* ブラウザ特有の余白をゼロにする */
+    min-height: 100vh;             /* 常に画面全体の高さを100%確保する */
+    flex-direction: column;        /* 中身を縦並びにする */
+    justify-content: center;       /* 【上下の真ん中】に配置する */
+}
+
+#splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(255, 222, 251);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.home-btn {
+  position: fixed; /* 画面に対して位置を完全に固定 */
+  top: 20px;       /* 上からの位置 */
+  right: 20px;     /* 右からの位置 */
+  z-index: 9999;   /* 他の要素に隠れないように最前面に表示 */
+  
+  font-size: 30px; /* マークの大きさ（画像を使う場合は不要です） */
+  text-decoration: none; /* リンクの下線を消す */
+  cursor: pointer; /* マウスを乗せたときに指マークにする */
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center; /* ★space-between から center に変更（要素を中央に寄せる） */
+  gap: 0;               /* ★左の文字と右の画像の間のスキマ（好みで調整してください） */
+  width: 100%;             /* 画面幅いっぱいに使う */
+  align-items: flex-start;
+  max-width: 950px;        /* 全体の横幅の最大値 */
+  margin: 80px auto 0;          /* 画面の中央に寄せる */
+  padding: 20px 0 20px;
+  background-color: rgba(255, 185, 248, 0.347);
+  border-radius: 10px;
+  box-shadow:2px 2px 10px 1px rgba(75, 1, 68, 0.735);
+}
+
+/* 左側の器は、幅だけを固定して縦は中身に合わせる */
+.sindan_block {
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+/* 【重要】質問フォームが表示されたときに、高さを固定してスクロールバーを出す */
+#sindanForm {
+  width: 100%;
+  height: 60vh;             /* 画面の高さの65%に固定（アバターの窓枠と大体同じ高さになります） */
+  overflow-y: scroll;       /* 縦方向のスクロールバーを「強制表示」にする */
+  padding-right: 15px;      /* スクロールバーと問題文が被らないための余白 */
+  box-sizing: border-box;
+}
+
+.text-box {
+  text-align: center;              /* テキストを左寄せにする */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#sindanForm::-webkit-scrollbar-track {
+  background: #ffe6f1;
+  border-radius: 10px;
+}
+
+#sindanForm::-webkit-scrollbar {
+  width: 12px;
+}
+
+#sindanForm::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+  border-radius: 10px;
+}
+
+#questions p {
+    margin-bottom: 30px; /* 質問ごとの間隔 */
+    font-weight: bold;   /* 質問文を太字に */
+}
+
+p {
+    background-color: rgba(255, 246, 185, 0.596);
+    border-radius: 14px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 18px;
+    width: 90%;
+    text-align: left;
+    transition: 0.2s;
+    font-size: 22px;
+    box-shadow: 1px 1px 5px 1px rgb(139, 139, 109);
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-left: 18px;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 19px;
+}
+
+:root {
+  --radioBtn-size: 22px;
+  --active-color: #f1b2cecd;
+  --inactive-color: rgb(255, 255, 255);
+}
+
+input[type="radio"] {
+  appearance: none;
+
+  width: var(--radioBtn-size);
+  height: var(--radioBtn-size);
+
+  border-radius: 50%;
+  border: 2px solid var(--active-color);
+
+  background-color: rgba(255, 211, 246, 0.285);
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  position: relative; /* after用 */
+}
+
+input[type="radio"]:checked {
+  border: none;
+  background: transparent;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+
+  position: absolute;
+
+  width: 60px;
+  height: 60px;
+
+  top: -18px;
+  left: -19px;
+
+  background-image: url("./img/Btn.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#startBtn {
+  margin-top: 50px;
+}
+
+.styled {
+  display: inline-block;
+  margin: 15px auto;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:2px 2px 6px 1px rgb(75, 1, 68);
+}
+
+.resultImg {
+    width: 450px;
+    margin-top: 10px;
+}
+
+#resultArea #result p {
+  width: 450px;
+}
+
+/* 3Dアバターを包む枠のスタイル */
+#canvas-container {
+    width: 335px;           
+    height: 335px;          
+    margin-left: 45px;    
+    background-image: url(./img/house.png); 
+    background-size: 100%;
+    overflow: hidden;       
+
+    border-radius: 30px 30px 12px 12px; /* 上だけ丸みを強くしてアーチ窓風に */
+    border: 6px solid #c28d62a1;/*窓のウッドフレーム（茶色）*/
+    box-shadow: 1px 1px 7px 1px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;       /* アバターを右側エリアの中央に */
+  }
+
+/* Canvas自体は常に親要素（container）に100%フィットさせる */
+#avatarCanvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
