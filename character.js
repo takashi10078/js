@@ -105,7 +105,7 @@ function init3D() {
 
     loader.load(
 
-        './idle.fbx',
+        './Idle.fbx',
 
         // 読み込み成功
         function (object) {
