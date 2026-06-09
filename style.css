@@ -10,12 +10,18 @@
 body {
     text-align: center;
     background-image: url(./img/sakura.png);
+    background-size: 100%;
     background-attachment: fixed;
     font-family: "Yomogi", cursive;
     margin: 0;                     /* ブラウザ特有の余白をゼロにする */
     min-height: 100vh;             /* 常に画面全体の高さを100%確保する */
-    flex-direction: column;        /* 中身を縦並びにする */
-    justify-content: center;       /* 【上下の真ん中】に配置する */
+}
+
+#wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* ←ここで固定 */
 }
 
 #splash {
@@ -68,7 +74,7 @@ h3 {
   width: 100%;             /* 画面幅いっぱいに使う */
   align-items: flex-start;
   max-width: 950px;        /* 全体の横幅の最大値 */
-  margin: 80px auto 0;          /* 画面の中央に寄せる */
+  margin: 0 auto 0;          /* 画面の中央に寄せる */
   padding: 20px 0 20px;
   background-color: rgba(255, 185, 248, 0.347);
   border-radius: 10px;
@@ -86,7 +92,7 @@ h3 {
 /* 【重要】質問フォームが表示されたときに、高さを固定してスクロールバーを出す */
 #sindanForm {
   width: 100%;
-  height: 60vh;             /* 画面の高さの65%に固定（アバターの窓枠と大体同じ高さになります） */
+  height: 330px;             /* 画面の高さの65%に固定（アバターの窓枠と大体同じ高さになります） */
   overflow-y: scroll;       /* 縦方向のスクロールバーを「強制表示」にする */
   padding-right: 15px;      /* スクロールバーと問題文が被らないための余白 */
   box-sizing: border-box;

@@ -215,6 +215,7 @@ function init3D() {
             camera.lookAt(0, 0, 0);
 
             // 描画開始
+            animate();
 
             scene.add(model);
 
