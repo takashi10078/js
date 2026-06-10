@@ -1,42 +1,57 @@
 * {
+    /* 余白をすべて0にリセット */
     margin: 0px;
     padding: 0px;
 }
 
 .index-body {
-      overflow: hidden;
+    /* 画面をスクロールさせない */
+    overflow: hidden; 
 }
 
 body {
-    text-align: center;
-    background-image: url(./img/sakura.png);
-    background-size: 100%;
+    /* 中身を中央寄せ */
+    text-align: center; 
+    /* 背景画像の設定 */
+    background-image: url(./img/sakura.png); 
+    /* 背景画像を画面幅100%に合わせる */
+    background-size: cover;
+    /* スクロールしても背景を動かさない */
     background-attachment: fixed;
+    /* 手書き風フォントを適用 */
     font-family: "Yomogi", cursive;
-    margin: 0;                     /* ブラウザ特有の余白をゼロにする */
-    min-height: 100vh;             /* 常に画面全体の高さを100%確保する */
+    margin: 0;
+    /* 画面の縦幅をいっぱいに確保 */
+    min-height: 100vh;
 }
 
 #wrapper {
     min-height: 100vh;
+    /* 中身を画面の上下左右の真ん中に配置 */
     display: flex;
     justify-content: center;
-    align-items: center; /* ←ここで固定 */
+    align-items: center; 
 }
 
-#splash {
+#splash { /* キャラクターが読み込まれるまで画面を映さない */
+    /* ローディング画面を全画面に固定 */
     position: fixed;
     inset: 0;
+    /* 一番手前に表示 */
     z-index: 9999;
 
+    /* ローディング演出を真ん中に配置 */
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background: rgb(255, 222, 251);
+    /* background: rgb(255, 222, 251); */
+    background-image: url(./img/sakura.png);
+    background-size: cover;
 }
 
 a {
+    /* リンクの下線を消す */
     text-decoration: none;
 }
 
@@ -57,70 +72,89 @@ h3 {
 }
 
 .home-btn {
-  position: fixed; /* 画面に対して位置を完全に固定 */
-  top: 20px;       /* 上からの位置 */
-  right: 20px;     /* 右からの位置 */
-  z-index: 9999;   /* 他の要素に隠れないように最前面に表示 */
-  
-  font-size: 30px; /* マークの大きさ（画像を使う場合は不要です） */
-  text-decoration: none; /* リンクの下線を消す */
-  cursor: pointer; /* マウスを乗せたときに指マークにする */
+    /* ボタンを画面の右上に固定 */
+    position: fixed; 
+    top: 20px;       
+    right: 20px;     
+    /* 最前面に表示 */
+    z-index: 9999;   
+    
+    font-size: 30px; 
+    text-decoration: none; 
+    /* マウスを乗せたときに指マークにする */
+    cursor: pointer; 
 }
 
 .flex-container {
-  display: flex;
-  justify-content: center; /* ★space-between から center に変更（要素を中央に寄せる） */
-  gap: 0;               /* ★左の文字と右の画像の間のスキマ（好みで調整してください） */
-  width: 100%;             /* 画面幅いっぱいに使う */
-  align-items: flex-start;
-  max-width: 950px;        /* 全体の横幅の最大値 */
-  margin: 0 auto 0;          /* 画面の中央に寄せる */
-  padding: 20px 0 20px;
-  background-color: rgba(255, 185, 248, 0.347);
-  border-radius: 10px;
-  box-shadow:2px 2px 10px 1px rgba(75, 1, 68, 0.735);
+    /* 質問とアバターを横並びにする */
+    display: flex;
+    /* 中身を中央寄せ */
+    justify-content: center; 
+    gap: 0;               
+    width: 100%;             
+    /* 横並びの上のラインを揃える */
+    align-items: flex-start;
+    /* 全体の最大横幅 */
+    max-width: 950px;        
+    /* 全体を画面の真ん中に寄せる */
+    margin: 0 auto 0;          
+    padding: 20px 0 20px;
+    background-color: rgba(255, 185, 248, 0.347);
+    /* 角を丸くする */
+    border-radius: 10px;
+    /* 外側に影をつける */
+    box-shadow:2px 2px 10px 1px rgba(75, 1, 68, 0.735);
 }
 
-/* 左側の器は、幅だけを固定して縦は中身に合わせる */
 .sindan_block {
-  flex: 1;
-  width: 100%;
-  max-width: 480px;
-  text-align: center;
+    /* 左右の枠をバランスよく伸縮させる */
+    flex: 1;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
 }
 
-/* 【重要】質問フォームが表示されたときに、高さを固定してスクロールバーを出す */
 #sindanForm {
-  width: 100%;
-  height: 330px;             /* 画面の高さの65%に固定（アバターの窓枠と大体同じ高さになります） */
-  overflow-y: scroll;       /* 縦方向のスクロールバーを「強制表示」にする */
-  padding-right: 15px;      /* スクロールバーと問題文が被らないための余白 */
-  box-sizing: border-box;
+    width: 100%;
+    /* 高さを330pxに固定 */
+    height: 330px;             
+    /* はみ出た質問は縦スクロールさせる */
+    overflow-y: scroll;       
+    /* スクロールバーと文字の重なり防止 */
+    padding-right: 15px;      
+    /* 余白を含めてサイズを固定 */
+    box-sizing: border-box;
 }
 
 .text-box {
-  text-align: center;              /* テキストを左寄せにする */
-  width: 100%;
-  box-sizing: border-box;
+    text-align: center;              
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* スクロールバーの背景（レール） */
 #sindanForm::-webkit-scrollbar-track {
-  background: #ffe6f1;
-  border-radius: 10px;
+    background: #ffe6f1;
+    border-radius: 10px;
 }
 
+/* スクロールバーの太さ */
 #sindanForm::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
+/* スクロールバーのつまみ（動く部分） */
 #sindanForm::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
-  border-radius: 10px;
+    /* ピンクのグラデーション */
+    background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+    border-radius: 10px;
 }
 
 #questions p {
-    margin-bottom: 30px; /* 質問ごとの間隔 */
-    font-weight: bold;   /* 質問文を太字に */
+    /* 質問ごとの間隔 */
+    margin-bottom: 30px; 
+    /* 質問文を太字に */
+    font-weight: bold;   
 }
 
 p {
@@ -133,14 +167,17 @@ p {
     padding-bottom: 17px;
     padding-left: 18px;
     width: 90%;
+    /* 文章を左詰めで読みやすく */
     text-align: left;
+    /* 変化を0.2秒でなめらかにする */
     transition: 0.2s;
     font-size: 22px;
     box-shadow: 1px 1px 5px 1px rgb(139, 139, 109);
 }
 
 label {
-    display: block;
+    /* 選択肢を一行ずつ縦に並べる */
+    display: block; 
     text-align: left;
     margin-left: 18px;
     margin-top: 10px;
@@ -149,69 +186,83 @@ label {
 }
 
 :root {
-  --radioBtn-size: 22px;
-  --active-color: #f1b2cecd;
-  --inactive-color: rgb(255, 255, 255);
+    /* 共通で使うサイズと色の設定 */
+    --radioBtn-size: 22px;
+    --active-color: #f1b2cecd;
+    --inactive-color: rgb(255, 255, 255);
 }
 
 input[type="radio"] {
-  appearance: none;
+    /* 標準のラジオボタンの見た目を消す */
+    appearance: none;
 
-  width: var(--radioBtn-size);
-  height: var(--radioBtn-size);
+    width: var(--radioBtn-size);
+    height: var(--radioBtn-size);
 
-  border-radius: 50%;
-  border: 2px solid var(--active-color);
+    border-radius: 50%;
+    /* フチに線の色をつける */
+    border: 2px solid var(--active-color);
 
-  background-color: rgba(255, 211, 246, 0.285);
-  cursor: pointer;
+    background-color: rgba(255, 211, 246, 0.285);
+    cursor: pointer;
 
-  transition: 0.2s;
+    transition: 0.2s;
 
-  position: relative; /* after用 */
+    /* チェック用画像（::after）の位置の基準 */
+    position: relative; 
 }
 
 input[type="radio"]:checked {
-  border: none;
-  background: transparent;
+    /* チェック時は元のフチ線を消す */
+    border: none;
+    /* 背景を透明にする */
+    background: transparent;
 }
 
+/* ラジオボタンにチェックが入ったときの画像設定 */
 input[type="radio"]:checked::after {
-  content: "";
+    content: "";
 
-  position: absolute;
+    /* ラジオボタンの丸を基準に自由に動かす */
+    position: absolute;
 
-  width: 60px;
-  height: 60px;
+    /* 画像のサイズ */
+    width: 60px;
+    height: 60px;
 
-  top: -18px;
-  left: -19px;
+    /* 画像の中心が重なるように位置を微調整 */
+    top: -18px;
+    left: -19px;
 
-  background-image: url("./img/Btn.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+    /* チェック時の画像を指定 */
+    background-image: url("./img/Btn.png");
+    /* 枠内に画像を綺麗に収める */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #startBtn {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .styled {
-  display: inline-block;
-  margin: 15px auto;
-  padding: 12px 30px;
-  font-size: 18px;
-  border-radius: 50px;
-  border: none;
-  background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow:2px 2px 6px 1px rgb(75, 1, 68);
+    display: inline-block;
+    margin: 15px auto;
+    padding: 12px 30px;
+    font-size: 18px;
+    /* ボタンを装飾にする */
+    border-radius: 50px;
+    border: none;
+    /* ピンクのグラデーション */
+    background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow:2px 2px 6px 1px rgb(75, 1, 68);
 }
 
-.resultImg {
+.resultImg { /*結果画像*/
     width: 450px;
     background-color: rgba(255, 246, 185, 0.596);
     border-radius: 14px;
@@ -219,30 +270,65 @@ input[type="radio"]:checked::after {
     margin-top: 10px;
 }
 
-#resultArea #result p {
-  width: 450px;
+/* 結果表示エリアの設定 */
+#resultArea {
+    box-sizing: border-box;
 }
 
-/* 3Dアバターを包む枠のスタイル */
+#resultArea #result p {
+    /* 文章の幅を上の画像（450px）と揃える */
+    width: 450px;
+}
+
 #canvas-container {
+    /* 3Dアバター表示枠のサイズ */
     width: 335px;           
     height: 335px;          
+    /* 左の質問エリアとの間隔 */
     margin-left: 45px;    
+    /* 背景画像 */
     background-image: url(./img/house.png); 
     background-size: 100%;
+    /* はみ出た部分は見えなくする */
     overflow: hidden;       
 
-    border-radius: 30px 30px 12px 12px; /* 上だけ丸みを強くしてアーチ窓風に */
-    border: 6px solid #c28d62a1;/*窓のウッドフレーム（茶色）*/
+    border-radius: 30px 30px 12px 12px; 
+    /* 茶色の窓枠をつける */
+    border: 6px solid #c28d62a1;
     box-shadow: 1px 1px 7px 1px;
+    /* 画面が狭くなってもサイズを縮ませない */
     flex-shrink: 0;
     display: flex;
-    justify-content: center;       /* アバターを右側エリアの中央に */
-  }
+    /* アバターを窓の中央に配置 */
+    justify-content: center;       
+}
 
-/* Canvas自体は常に親要素（container）に100%フィットさせる */
 #avatarCanvas {
+    /* 3Dキャンバスを窓枠いっぱいに広げる */
     width: 100% !important;
     height: 100% !important;
+    /* 不要な隙間ができるのを防ぐ */
     display: block;
+}
+
+
+/* スクロールバーを消す */
+html {
+    scrollbar-gutter: stable;
+}
+
+/* 太さ */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* スクロールバーの背景（レール） */
+::-webkit-scrollbar-track {
+    background: #ffe6f1;
+}
+
+/* スクロールバーのつまみ */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+    border-radius: 10px;
 }
